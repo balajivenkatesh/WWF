@@ -2,29 +2,29 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 
+import { locationsEnum } from '../constants/boardConst';
 import Tile from './Tile';
 import styles from './styles/allStyles';
 
 class Board extends Component {
   render() {
-    const t = new Array(11);
+    const grid = new Array(11);
     this.props.board.map((x, i) => {
       const row = new Array(11);
-      x.map((y, j) => row[j] = <Tile key={j} value={y}></Tile>);
-      t[i] = <View key={i} style={styles.row}>{row}</View>;
+      x.map((y, j) => row[j] = 
+        <Tile
+          key={11*i+j}
+          value={y}
+          tileLocation={locationsEnum.grid}
+          x={i}
+          y={j}
+        />
+      );
+      grid[i] = <View key={i} style={styles.row}>{row}</View>;
     });
 
-    // const t = new Array(11);
-    // for (var i = 0; i < 11; i++) {
-    //   const row = new Array(11);
-    //   for (var j = 0; j < 11; j++) {
-    //     row[j] = <Tile key={j} value={this.props.board[i][j]}></Tile>;
-    //   }
-    //   t[i] = <View key={i} style={{flexDirection: 'row'}}>{row}</View>;
-    // }
-
     return (
-      <View>{t}</View>
+      <View>{grid}</View>
     );
   }
 }

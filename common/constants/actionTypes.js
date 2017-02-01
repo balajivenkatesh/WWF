@@ -1,0 +1,1 @@
+export const TILE_SELECTED = 'TILE_SELECTED';

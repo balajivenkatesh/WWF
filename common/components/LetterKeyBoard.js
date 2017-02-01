@@ -7,14 +7,13 @@ import styles from './styles/allStyles';
 
 class LetterKeyBoard extends Component {
   render() {
-
     let alph = 65;
     const grid = new Array(3);
     for (var i = 0; i < 3; i++) {
       const row = new Array(11);
       var j = 0;
       for (; j < 11 && alph < 91; j++) {
-        row[j] = <Tile key={j} value={String.fromCharCode(alph)}></Tile>;
+        row[j] = <Tile key={alph} value={String.fromCharCode(alph)}></Tile>;
         alph++;
       }
       if (i == 2) {
