@@ -1,3 +1,5 @@
+import { connect } from 'react-redux';
+
 import { TILE_SELECTED } from '../constants/actionTypes';
 import { showEnum, locationsEnum } from '../constants/boardConst';
 
@@ -9,6 +11,7 @@ const initialState = {
 }
 
 const keyboardReducer = (state = initialState, action) => {
+  console.log('TILE_SELECTED.......' + action.x + ', ' + action.y);
   switch (action.type) {
     case TILE_SELECTED: {
       switch (action.tileLocation) {

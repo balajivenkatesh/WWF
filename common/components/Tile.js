@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { View, Text, TouchableHighlight, Alert } from 'react-native';
 import { connect } from 'react-redux';
 
-import { onTileSelected } from '../actions/keyboardActions';
 import styles from './styles/allStyles';
 
 class Tile extends Component {
@@ -10,7 +9,7 @@ class Tile extends Component {
     return (
       <Text
         style={[styles.tile, this.props.double ? styles.doubleTile : null]}
-        onPress={() => this.props.onTileSelected(this.props.tileLocation, this.props.x, this.props.y)}
+        onPress={this.props.onPressAction}
       >
         {this.props.value}
       </Text>
@@ -29,7 +28,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onTileSelected: (tileLocation, x, y) => dispatch(onTileSelected(tileLocation, x, y))
+    
   };
 }
 

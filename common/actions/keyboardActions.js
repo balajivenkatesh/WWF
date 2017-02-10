@@ -1,10 +1,10 @@
-import { TILE_SELECTED } from '../constants/actionTypes';
+import { LETTER_SELECTED } from '../constants/actionTypes';
 
-export function onTileSelected(tileLocation, x, y) {
+export function onLetterSelected(x, y, letter) {
   return {
-    type: TILE_SELECTED,
-    tileLocation,
+    type: LETTER_SELECTED,
     x,
-    y
+    y,
+    letter
   }
 }
